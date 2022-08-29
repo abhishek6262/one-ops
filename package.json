@@ -1,7 +1,7 @@
 {
-  "name": "ts-npm-package-boilerplate",
-  "version": "0.1.6",
-  "description": "TypeScript NPM Module Boilerplate",
+  "name": "one-ops",
+  "version": "0.1.0",
+  "description": "OneOps is a platform for managing your deops needs",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "scripts": {
@@ -16,20 +16,12 @@
     "version": "npm run format && git add -A src",
     "postversion": "git push && git push --tags"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/hebertcisco/ts-npm-package-boilerplate.git"
-  },
   "keywords": [
-    "boilerplate",
-    "typescript"
+    "azure",
+    "devops"
   ],
-  "author": "Hebert Cisco",
+  "author": "Abhishek Prakash",
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/hebertcisco/ts-npm-package-boilerplate/issues"
-  },
-  "homepage": "https://github.com/hebertcisco/ts-npm-package-boilerplate#readme",
   "devDependencies": {
     "@types/jest": "28.1.6",
     "@typescript-eslint/eslint-plugin": "5.30.7",
