@@ -1,7 +1,7 @@
 {
   "name": "one-ops",
   "version": "0.1.0",
-  "description": "OneOps is a platform for managing your deops needs",
+  "description": "OneOps is a cli tool for managing your devops needs",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "scripts": {
@@ -18,7 +18,8 @@
   },
   "keywords": [
     "azure",
-    "devops"
+    "devops",
+    "cli"
   ],
   "author": "Abhishek Prakash",
   "license": "MIT",
