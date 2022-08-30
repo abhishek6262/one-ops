@@ -1,6 +1,6 @@
 import * as azure from "azure-devops-node-api";
-import { Command } from "../Contracts/Command";
-import { Argument } from "../Core/Argument";
+import { Command } from "../Framework/Command";
+import { Argument } from "../Framework/Argument";
 
 export class Login extends Command {
     name = "login";

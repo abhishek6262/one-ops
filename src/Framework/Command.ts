@@ -1,4 +1,4 @@
-import { Argument } from "../Core/Argument";
+import { Argument } from "./Argument";
 
 export abstract class Command {
     abstract name: string;
