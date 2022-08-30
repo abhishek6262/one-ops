@@ -36,5 +36,9 @@
   },
   "files": [
     "lib/**/*"
-  ]
+  ],
+  "dependencies": {
+    "azure-devops-node-api": "^11.2.0",
+    "commander": "^9.4.0"
+  }
 }
