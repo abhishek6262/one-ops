@@ -1,5 +1,7 @@
+import { injectable } from "inversify";
 import { Argument } from "./Argument";
 
+@injectable()
 export abstract class Command {
     abstract name: string;
     abstract description: string;

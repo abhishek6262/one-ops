@@ -1,7 +1,9 @@
 #! /usr/bin/env node
 
+import "reflect-metadata";
 import { Command } from 'commander';
 import { argv } from 'process';
+import { container } from "./Framework/Container";
 import * as commands from "./Commands";
 
 function main() {
@@ -10,7 +12,7 @@ function main() {
     program.version('0.1.0').description('One-Ops is a cli tool for managing your devops needs');
 
     for (const className of Object.values(commands)) {
-        const commandInstance = new className();
+        const commandInstance = container.resolve(className);
         const command = program
             .command(commandInstance.getName())
             .description(commandInstance.getDescription());
