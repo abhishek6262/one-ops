@@ -7,9 +7,14 @@ export class App {
 
   private version = '0.0.1';
 
-  private commands: Command[] = [];
+  private commands: typeof Command[] = [];
 
-  public run() {
-    console.log('Running the app...');
+  constructor() {}
+
+  public registerCommands(...commands: typeof Command[]) {
+    this.commands = [...this.commands, ...commands];
+    return this;
   }
+
+  public run() {}
 }
