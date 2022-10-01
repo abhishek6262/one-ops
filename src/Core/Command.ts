@@ -3,5 +3,5 @@ export abstract class Command {
 
   alias: string[] = [];
 
-  abstract execute(): Promise<void> | void;
+  abstract execute(): void;
 }

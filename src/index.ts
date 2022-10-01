@@ -3,3 +3,5 @@
 import { App } from './Core/App';
 
 const app = new App();
+
+app.run();
