@@ -7,12 +7,7 @@ export class App {
 
   private version = '0.0.1';
 
-  private commands: typeof Command[] = [];
-
-  constructor() {}
-
   public registerCommands(...commands: typeof Command[]) {
-    this.commands = [...this.commands, ...commands];
     return this;
   }
 
