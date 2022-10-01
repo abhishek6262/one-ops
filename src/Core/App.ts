@@ -1,3 +1,4 @@
+import { CommandExecutor } from '../Contracts/CommandExecutor';
 import { Command } from './Command';
 
 export class App {
@@ -7,9 +8,16 @@ export class App {
 
   private version = '0.0.1';
 
-  public registerCommands(...commands: typeof Command[]) {
+  public constructor(private commandExecutor: CommandExecutor) {
+    this.commandExecutor.setName(this.name).setDescription(this.description).setVersion(this.version);
+  }
+
+  public registerCommands(...commands: (new () => Command)[]) {
+    this.commandExecutor.registerCommands(...commands);
     return this;
   }
 
-  public run() {}
+  public run() {
+    this.commandExecutor.execute();
+  }
 }

@@ -1,8 +1,7 @@
 #! /usr/bin/env node
 
-import { Auth } from './Commands/Auth';
 import { App } from './Core/App';
+import { Auth } from './Commands/Auth';
+import { Commander } from './Core/Commander';
 
-const app = new App();
-
-app.registerCommands(Auth).run();
+new App(new Commander()).registerCommands(Auth).run();
