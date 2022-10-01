@@ -2,8 +2,8 @@
   "name": "one-ops",
   "version": "0.1.0",
   "description": "OneOps is a cli tool for managing your devops need",
-  "main": "lib/index.js",
-  "types": "lib/index.d.ts",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
     "build": "tsc",
     "watch:build": "tsc -p tsconfig.json -w",
@@ -26,15 +26,17 @@
   "license": "MIT",
   "preferGlobal": true,
   "bin": {
-    "one": "lib/index.js"
+    "one": "dist/index.js"
   },
   "files": [
-    "lib/**/*"
+    "dist/**/*"
   ],
   "engines": {
     "node": ">=10"
   },
   "devDependencies": {
+    "@types/jest": "^29.1.1",
+    "@types/mocha": "^10.0.0",
     "@typescript-eslint/eslint-plugin": "5.30.7",
     "@typescript-eslint/parser": "5.30.7",
     "eslint": "8.20.0",
