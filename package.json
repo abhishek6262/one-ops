@@ -1,7 +1,7 @@
 {
   "name": "one-ops",
   "version": "0.1.0",
-  "description": "OneOps is a cli tool for managing your devops needs",
+  "description": "OneOps is a cli tool for managing your devops need",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "scripts": {
