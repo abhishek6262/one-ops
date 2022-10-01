@@ -1,7 +1,5 @@
 #! /usr/bin/env node
 
-function main() {
-  //
-}
+import { App } from './Core/App';
 
-main();
+const app = new App();
