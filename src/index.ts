@@ -1,7 +1,9 @@
 #! /usr/bin/env node
 
-function main() {
-  //
-}
+import { App } from './Core/App';
+import { Auth } from './Commands/Auth';
+import { Commander } from './Core/Engines/Commander';
 
-main();
+new App(new Commander)
+    .registerCommands(Auth)
+    .run();
