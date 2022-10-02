@@ -9,11 +9,9 @@ export class Commander extends AbstractEngine {
     for (const command of commands) {
       const commandInstance = new command();
       const commanderInstance = this.instance.command(commandInstance.name);
-
-      commanderInstance
-        .command(commandInstance.name)
-        .description(commandInstance.description);
-
+      
+      commanderInstance.description(commandInstance.description);
+      
       for (const arg of commandInstance.args) {
         commanderInstance.argument(this.formatArg(arg), arg.description);
       }
