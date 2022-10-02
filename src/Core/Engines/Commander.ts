@@ -1,6 +1,6 @@
 import { Command as BaseCommand } from 'commander';
-import { CommandArg } from '../../Contracts/Command';
 import { AbstractEngine, Command } from '../AbstractEngine';
+import { Argument } from '../Argument';
 
 export class Commander extends AbstractEngine {
   private instance: BaseCommand = new BaseCommand();
@@ -41,7 +41,7 @@ export class Commander extends AbstractEngine {
     this.instance.parse();
   }
 
-  private formatArg(arg: CommandArg) {
-    return this.isArgRequired(arg) ? `<${arg.name}>` : `[${arg.name}]`;
+  private formatArg(arg: Argument) {
+    return arg.required ? `<${arg.name}>` : `[${arg.name}]`;
   }
 }

@@ -1,16 +1,13 @@
-import type { CommandArg } from '../Contracts/Command';
 import { AbstractCommand } from '../Core/AbstractCommand';
+import { Argument } from '../Core/Argument';
 
 export class Auth extends AbstractCommand {
   name = 'auth';
 
   description = 'Authenticates the user using the personal access token';
 
-  args: CommandArg[] = [
-    {
-      name: 'token',
-      description: 'The personal token generated in the azure',
-    }
+  args = [
+    new Argument('token', 'The personal token generated in the azure'),
   ];
 
   execute(): void {
