@@ -2,12 +2,7 @@ import { Command as BaseCommand } from 'commander';
 import { AbstractEngine, Command } from '../AbstractEngine';
 
 export class Commander extends AbstractEngine {
-  private instance: BaseCommand;
-
-  constructor () {
-    super();
-    this.instance = new BaseCommand();
-  }
+  private instance: BaseCommand = new BaseCommand();
 
   registerCommands(...commands: Command[]) {
     for (const command of commands) {
