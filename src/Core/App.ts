@@ -1,5 +1,4 @@
-import { CommandExecutor } from '../Contracts/CommandExecutor';
-import { Command } from './Command';
+import type { Command, Engine } from "../Contracts/Engine";
 
 export class App {
   private name = 'one-ops';
@@ -8,16 +7,19 @@ export class App {
 
   private version = '0.0.1';
 
-  public constructor(private commandExecutor: CommandExecutor) {
-    this.commandExecutor.setName(this.name).setDescription(this.description).setVersion(this.version);
+  constructor(private engine: Engine) {
+    this.engine
+      .setName(this.name)
+      .setDescription(this.description)
+      .setVersion(this.version);
   }
 
-  public registerCommands(...commands: (new () => Command)[]) {
-    this.commandExecutor.registerCommands(...commands);
+  public registerCommands(...commands: Command[]) {
+    this.engine.registerCommands(...commands);
     return this;
   }
 
   public run() {
-    this.commandExecutor.execute();
+    this.engine.start();
   }
 }
