@@ -1,4 +1,4 @@
-import type { Command, Engine } from "../Contracts/Engine";
+import { AbstractEngine, Command } from "./AbstractEngine";
 
 export class App {
   private name = 'one-ops';
@@ -7,7 +7,7 @@ export class App {
 
   private version = '0.0.1';
 
-  constructor(private engine: Engine) {
+  constructor(private engine: AbstractEngine) {
     this.engine
       .setName(this.name)
       .setDescription(this.description)

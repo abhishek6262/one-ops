@@ -1,37 +1,44 @@
 import { Command as BaseCommand } from 'commander';
-import type { Command, Engine } from '../../Contracts/Engine';
+import { AbstractEngine, Command } from '../AbstractEngine';
 
-export class Commander implements Engine {
+export class Commander extends AbstractEngine {
   private instance: BaseCommand;
 
   constructor () {
+    super();
     this.instance = new BaseCommand();
   }
 
-  registerCommands(...commands: Command[]): Engine {
+  registerCommands(...commands: Command[]) {
     for (const command of commands) {
       const commandInstance = new command();
-      
-      this.instance
+      const commanderInstance = this.instance.command(commandInstance.name);
+
+      commanderInstance
         .command(commandInstance.name)
-        .description(commandInstance.description)
-        .action(() => commandInstance.execute());
+        .description(commandInstance.description);
+
+      for (const arg of commandInstance.args) {
+        commanderInstance.argument(this.formatArg(arg), arg.description);
+      }
+
+      commanderInstance.action(() => commandInstance.execute());
     }
 
     return this;
   }
 
-  setName(name: string): Engine {
+  setName(name: string) {
     this.instance.name(name);
     return this;
   }
   
-  setDescription(description: string): Engine {
+  setDescription(description: string) {
     this.instance.description(description);
     return this;
   }
   
-  setVersion(version: string): Engine {
+  setVersion(version: string) {
     this.instance.version(version);
     return this;
   }
