@@ -49,5 +49,6 @@
   "dependencies": {
     "azure-devops-node-api": "^11.2.0",
     "commander": "^9.4.0"
-  }
+  },
+  "packageManager": "yarn@3.2.3"
 }
