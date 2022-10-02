@@ -9,5 +9,5 @@ export abstract class AbstractCommand {
 
   args: CommandArg[] = [];
 
-  abstract execute(): void;
+  abstract execute(): void | Promise<void>;
 }
