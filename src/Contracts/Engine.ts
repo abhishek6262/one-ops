@@ -1,6 +1,6 @@
-import {Command as BaseCommand} from '../Core/Command';
+import { AbstractCommand } from '../Core/AbstractCommand';
 
-export type Command = new () => BaseCommand;
+export type Command = new () => AbstractCommand;
 
 export interface Engine {
   registerCommands(...commands: Command[]): Engine;

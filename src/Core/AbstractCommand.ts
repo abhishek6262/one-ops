@@ -1,4 +1,4 @@
-export abstract class Command {
+export abstract class AbstractCommand {
   abstract name: string;
 
   abstract description: string;
