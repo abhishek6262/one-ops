@@ -1,4 +1,4 @@
-import type { CommandArg } from "../Contracts/Command";
+import { CommandArg } from "../Contracts/Command";
 import { AbstractCommand } from "./AbstractCommand";
 
 export type Command = new () => AbstractCommand;
@@ -14,11 +14,9 @@ export abstract class AbstractEngine {
 
   abstract start(): void;
 
-  protected formatArg(command: CommandArg) {
-    if (typeof command.required === 'boolean' && !command.required) {
-      return `[${command.name}]`;
-    }
+  protected isArgRequired(arg: CommandArg): boolean {
+    if (typeof arg.required === 'boolean' && !arg.required) return false;
 
-    return `<${command.name}>`;
+    return true;
   }
 }

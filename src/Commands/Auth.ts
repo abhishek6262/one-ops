@@ -4,7 +4,7 @@ import { AbstractCommand } from '../Core/AbstractCommand';
 export class Auth extends AbstractCommand {
   name = 'auth';
 
-  description = 'Authenticates the user using the personal token';
+  description = 'Authenticates the user using the personal access token';
 
   args: CommandArg[] = [
     {
