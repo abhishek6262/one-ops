@@ -1,4 +1,4 @@
-import { AbstractCommand } from '../Core/AbstractCommand';
+import { AbstractCommand, CommandExecutionArguments } from '../Core/AbstractCommand';
 import { Argument } from '../Core/Argument';
 
 export class Auth extends AbstractCommand {
@@ -10,7 +10,7 @@ export class Auth extends AbstractCommand {
     new Argument('token', 'The personal token generated in the azure'),
   ];
 
-  execute(): void {
+  execute(args: CommandExecutionArguments): void {
     console.log('Running auth command in console...');
   }
 }
