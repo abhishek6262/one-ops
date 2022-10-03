@@ -1,4 +1,6 @@
-import type { CommandArg } from "../Contracts/Command";
+import { Argument } from "./Argument";
+
+export type CommandExecutionArguments = Record<string, unknown>; 
 
 export abstract class AbstractCommand {
   abstract name: string;
@@ -7,7 +9,7 @@ export abstract class AbstractCommand {
 
   alias: string[] = [];
 
-  args: CommandArg[] = [];
+  args: Argument[] = [];
 
-  abstract execute(): void;
+  abstract execute(args: CommandExecutionArguments): void | Promise<void>;
 }

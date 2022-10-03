@@ -1,6 +1,7 @@
 import { Command as BaseCommand } from 'commander';
-import { CommandArg } from '../../Contracts/Command';
+import type { CommandExecutionArguments } from '../AbstractCommand';
 import { AbstractEngine, Command } from '../AbstractEngine';
+import { Argument } from '../Argument';
 
 export class Commander extends AbstractEngine {
   private instance: BaseCommand = new BaseCommand();
@@ -16,7 +17,15 @@ export class Commander extends AbstractEngine {
         commanderInstance.argument(this.formatArg(arg), arg.description);
       }
 
-      commanderInstance.action(() => commandInstance.execute());
+      commanderInstance.action(() => {
+        const args: CommandExecutionArguments = {};
+
+        for (const [index, commandArgs] of commandInstance.args.entries()) {
+          args[commandArgs.name] = commanderInstance.processedArgs[index];
+        }
+
+        commandInstance.execute(args);
+      });
     }
 
     return this;
@@ -41,7 +50,7 @@ export class Commander extends AbstractEngine {
     this.instance.parse();
   }
 
-  private formatArg(arg: CommandArg) {
-    return this.isArgRequired(arg) ? `<${arg.name}>` : `[${arg.name}]`;
+  private formatArg(arg: Argument) {
+    return arg.required ? `<${arg.name}>` : `[${arg.name}]`;
   }
 }
