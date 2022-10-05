@@ -1,5 +1,4 @@
 import { Command as BaseCommand } from 'commander';
-import type { CommandExecutionArguments } from '../AbstractCommand';
 import { AbstractEngine, Command } from '../AbstractEngine';
 import { Argument } from '../Argument';
 
@@ -18,7 +17,7 @@ export class Commander extends AbstractEngine {
       }
 
       commanderInstance.action(() => {
-        const args: CommandExecutionArguments = {};
+        const args: Record<string, unknown> = {};
 
         for (const [index, commandArgs] of commandInstance.args.entries()) {
           args[commandArgs.name] = commanderInstance.processedArgs[index];

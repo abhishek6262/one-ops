@@ -1,6 +1,6 @@
 import { Argument } from "./Argument";
 
-export type CommandExecutionArguments = Record<string, unknown>; 
+export interface CommandExecutionArguments extends Object {}
 
 export abstract class AbstractCommand {
   abstract name: string;
