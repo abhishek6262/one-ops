@@ -16,5 +16,7 @@ export class Auth extends AbstractCommand {
 
   execute(args: AuthExecutionArguments): void {
     console.log('Running auth command in console...');
+
+    this.config.set('AUTH_TOKEN', args.token);
   }
 }
